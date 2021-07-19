@@ -22,9 +22,9 @@ def get_first():
     driver.get('https://www.shapeways.com/designer/mz4250/creations')#site to start downloading from
     elements = driver.find_elements_by_css_selector('a.product-url')#finds products on page
     links = [el.get_attribute('href') for el in elements]# gets links and adds them to a list/array. Currently causes duplicates of all links.
-#    for url in links[1:]:#
-#        driver.execute_script('window.open("{}", "_blank");'.format(url))#should open all links in list
-#        element2 = driver.find_element_by_css_selector('a.btn')#finds download link
+    for url in links[1:]:#
+        driver.execute_script('window.open("{}", "_blank");'.format(url))#should open all links in list
+#        element2 = driver.find_element_by_css_selector('a.btn')#finds download link. commented out because only opens one page when used and doesn't download.
 #        element2.click()should click on download link
     print(links)
     # needs to go to next page and repeat process.
